@@ -1,22 +1,36 @@
 package com.generation.projeto_03_backend.controller;
 
-import com.generation.projeto_03_backend.model.Oportunidade;
-import com.generation.projeto_03_backend.repository.ClienteRepository;
-import com.generation.projeto_03_backend.repository.OportunidadeRepository;
-import jakarta.validation.Valid;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.List;
-import java.util.Optional;
+import com.generation.projeto_03_backend.model.Oportunidade;
+import com.generation.projeto_03_backend.repository.ClienteRepository;
+import com.generation.projeto_03_backend.repository.OportunidadeRepository;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/oportunidades")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class OportunidadeController {
+	
+	Set<String> statusValidos = Set.of("aberta", "fechada", "perdida");
 
     @Autowired
     private OportunidadeRepository oportunidadeRepository;
@@ -75,11 +89,14 @@ public class OportunidadeController {
     }
 
     @PutMapping("/{id}/status/{status}")
-    public ResponseEntity<Oportunidade> mudarStatus(@PathVariable Long id, @PathVariable int status) {
+    public ResponseEntity<Oportunidade> mudarStatus(@PathVariable Long id, @PathVariable String status) {
 
-        if (status < 1 || status > 3) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "O Status deve ser um valor entre 1 e 3");
-        }
+//        if (!status.equalsIgnoreCase("aberta") || !status.equalsIgnoreCase("fechada") || !status.equalsIgnoreCase("perdida")) {
+//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "O Status deve ser ABERTA, FECHADA ou PERDIDA");
+//        }
+    	if (status == null || !statusValidos.contains(status.trim().toLowerCase())) {
+    	    throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "O Status deve ser ABERTA, FECHADA ou PERDIDA");
+    	}
 
         Optional<Oportunidade> buscarOportunidade = oportunidadeRepository.findById(id);
 

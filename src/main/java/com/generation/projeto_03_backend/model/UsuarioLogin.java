@@ -2,20 +2,12 @@ package com.generation.projeto_03_backend.model;
 
 public class UsuarioLogin { 
 
-
 	private Long id;
-
 	private String nome;
-
     private String usuario;
-
 	private String senha;
-
 	private String foto;
-
 	private String token;  
-
-	/* Insira os Getters and Setters */
 
 	public Long getId() {
 		return this.id;

@@ -3,10 +3,16 @@ package com.generation.projeto_03_backend.model;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.persistence.*;
-import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -29,10 +35,9 @@ public class Oportunidade {
     @DecimalMin(value = "0.01", message = "O preço deve ser maior que zero.")
     private BigDecimal valor;
     
-	@UpdateTimestamp
+    @CreationTimestamp
 	private LocalDateTime data_abertura;
 	
-	@UpdateTimestamp
 	private LocalDateTime data_fechamento;
 
 	@ManyToOne
