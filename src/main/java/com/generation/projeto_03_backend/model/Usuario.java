@@ -73,5 +73,13 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
+	public List<Oportunidade> getOportunidade() {
+		return oportunidade;
+	}
+
+	public void setOportunidade(List<Oportunidade> oportunidade) {
+		this.oportunidade = oportunidade;
+	}
 	
 }

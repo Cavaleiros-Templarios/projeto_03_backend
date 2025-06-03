@@ -107,4 +107,6 @@ public class Oportunidade {
 		this.data_fechamento = data_fechamento;
 	}
 	
+	
+	
 }
