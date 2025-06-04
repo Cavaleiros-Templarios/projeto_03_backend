@@ -1,9 +1,6 @@
 package com.generation.projeto_03_backend.controller;
 
-<<<<<<< HEAD
-=======
 import java.math.BigDecimal;
->>>>>>> 445fe9132028e92b88aa1c8136c115268ba5f4be
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -57,8 +54,6 @@ public class OportunidadeController {
     public ResponseEntity<List<Oportunidade>> getByTitulo(@PathVariable String titulo) {
         return ResponseEntity.ok(oportunidadeRepository.findAllByTituloContainingIgnoreCase(titulo));
     }
-<<<<<<< HEAD
-=======
     
     @GetMapping("/oportunidade/maiorque/{valor}")
     public ResponseEntity<List<Oportunidade>> getByOportunidadeMaior(@PathVariable BigDecimal valor) {
@@ -72,7 +67,6 @@ public class OportunidadeController {
         List<Oportunidade> oportunidades = oportunidadeRepository.findByValorLessThan(valor);
         return ResponseEntity.ok(oportunidades);
     }
->>>>>>> 445fe9132028e92b88aa1c8136c115268ba5f4be
 
     @PostMapping
     public ResponseEntity<Oportunidade> post(@Valid @RequestBody Oportunidade oportunidade) {

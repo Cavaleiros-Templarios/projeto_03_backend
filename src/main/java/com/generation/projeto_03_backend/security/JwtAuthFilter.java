@@ -1,8 +1,5 @@
 package com.generation.projeto_03_backend.security;
-<<<<<<< HEAD
-=======
 
->>>>>>> 445fe9132028e92b88aa1c8136c115268ba5f4be
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
