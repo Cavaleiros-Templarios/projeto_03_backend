@@ -3,7 +3,7 @@ package com.generation.projeto_03_backend.model;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -35,9 +35,10 @@ public class Oportunidade {
     @DecimalMin(value = "0.01", message = "O preço deve ser maior que zero.")
     private BigDecimal valor;
     
-    @CreationTimestamp
+    @UpdateTimestamp
 	private LocalDateTime data_abertura;
 	
+    @UpdateTimestamp
 	private LocalDateTime data_fechamento;
 
 	@ManyToOne
