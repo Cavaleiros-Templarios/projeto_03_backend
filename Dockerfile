@@ -1,4 +1,3 @@
-# Etapa 1: Build da aplicação
 FROM eclipse-temurin:17-jdk AS build
 
 WORKDIR /workspace/app
@@ -14,7 +13,6 @@ RUN ./mvnw install -DskipTests
 
 RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
 
-# Etapa 2: Execução da aplicação
 FROM eclipse-temurin:17-jdk
 
 VOLUME /tmp
