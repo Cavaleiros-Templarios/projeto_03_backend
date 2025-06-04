@@ -55,14 +55,14 @@ public class OportunidadeController {
         return ResponseEntity.ok(oportunidadeRepository.findAllByTituloContainingIgnoreCase(titulo));
     }
     
-    @GetMapping("/oportunidade/maiorque/{valor}")
+    @GetMapping("/maiorque/{valor}")
     public ResponseEntity<List<Oportunidade>> getByOportunidadeMaior(@PathVariable BigDecimal valor) {
         List<Oportunidade> oportunidades = oportunidadeRepository.findByValorGreaterThan(valor);
         return ResponseEntity.ok(oportunidades);
     }
 
     
-    @GetMapping("/oportunidade/menorque/{valor}")
+    @GetMapping("/menorque/{valor}")
     public ResponseEntity<List<Oportunidade>> getByOportunidadeMenor(@PathVariable BigDecimal valor) {
         List<Oportunidade> oportunidades = oportunidadeRepository.findByValorLessThan(valor);
         return ResponseEntity.ok(oportunidades);
