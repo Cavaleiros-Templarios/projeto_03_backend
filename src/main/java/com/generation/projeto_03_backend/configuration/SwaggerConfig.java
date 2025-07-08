@@ -39,6 +39,10 @@ public class SwaggerConfig {
 	        .externalDocs(new ExternalDocumentation()
 	            .description("Repositório GitHub")
 	            .url("https://github.com/Cavaleiros-Templarios/projeto_03_backend"));
+		.servers(List.of(
+	            new io.swagger.v3.oas.models.servers.Server()
+	                .url("https://projeto03backend-production.up.railway.app")
+	        ));
 	}
 
 	@Bean
