@@ -34,6 +34,8 @@ public class UsuarioService {
 			return Optional.empty();
 
 		usuario.setSenha(criptografarSenha(usuario.getSenha()));
+		
+		usuario.setId(null);
 
 		return Optional.of(usuarioRepository.save(usuario));
 	
