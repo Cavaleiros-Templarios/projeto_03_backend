@@ -43,7 +43,7 @@ public class SwaggerConfig {
 	            .description("Repositório GitHub")
 	            .url("https://github.com/Cavaleiros-Templarios/projeto_03_backend"))
 		    .servers(List.of(
-	                new Server().url("https://projeto02backend-production.up.railway.app")
+	                new Server().url("https://projeto03backend-production.up.railway.app")
 	            ));
 	}
 
