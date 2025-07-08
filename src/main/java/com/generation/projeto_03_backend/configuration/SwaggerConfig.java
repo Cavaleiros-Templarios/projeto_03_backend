@@ -1,5 +1,7 @@
 package com.generation.projeto_03_backend.configuration;
 
+import java.util.List;
+
 import org.springdoc.core.customizers.OpenApiCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,6 +13,7 @@ import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
 import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.responses.ApiResponses;
+import io.swagger.v3.oas.models.servers.Server;
 
 
 @Configuration
@@ -38,7 +41,10 @@ public class SwaggerConfig {
 	                .email("")))
 	        .externalDocs(new ExternalDocumentation()
 	            .description("Repositório GitHub")
-	            .url("https://github.com/Cavaleiros-Templarios/projeto_03_backend"));
+	            .url("https://github.com/Cavaleiros-Templarios/projeto_03_backend"))
+		    .servers(List.of(
+	                new Server().url("https://projeto02backend-production.up.railway.app")
+	            ));
 	}
 
 	@Bean
